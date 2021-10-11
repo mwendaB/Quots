@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
 import { Quote } from '../quote';
 
@@ -12,6 +12,7 @@ export class QuoteFormComponent implements OnInit {
   @Output() addQuote = new EventEmitter<Quote>();
 
   newQuote = new Quote("","","",0,0,new Date());
+
 
   submitQuote(f:NgForm){
     if(f.valid){
