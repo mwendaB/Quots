@@ -1,46 +1,34 @@
 <div class="container text-center">
     <h1>The Quotes App</h1>
 </div>
-<div class="contaier-fluid">
-    <div class="text">
-    <h4>About</h4>
-    <hr>
-  
-    <p>
-       <br>
-        We believe access to the spoken word gives us a unique glimpse into the historic, 
-        political and cultural history of the world we share. 
-        <br> Further, we believe that inherent in 
-        these quotations lies the essence of the individuals we have quoted; their interests, 
-        belief system, comments and ideas are captured in time to benefit our generation and the next. </p>
-    </div>
-</div>
-<div class="container ">
+<div>
+    <app-quote-form (addQuote) = "addNewQuote($event)"></app-quote-form>
    
-    <form  class="w-50 mt-5 mb-5">
-        <div class="form-group">
-            <label for="description">Quote:</label>
-            <textarea class="form-control" id="description" rows="4"  name="description" ></textarea>
-            <div  class="alert alert-danger">
-                <p>A Quote is required</p>
+     
+    
+</div>
+
+<div class="container">
+    
+    <div class="row text-center right">
+        <div *ngFor='let quote of sortQuotes;let i = index' class="col-md-4 mb-4">
+            <div class="card text-white bg-dark h-100">
+                <div class="card-header">
+                    Quote
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                    <p>{{quote.description}}</p>
+                    <footer class="blockquote-footer mt-3"><cite title="Source Title">{{quote.author}} </cite></footer>
+                    </blockquote>
+                </div>
+                <div class="card-footer">
+                    <app-quote-detail [quote]='quote' (isComplete) = 'deleteQuote($event,i)'></app-quote-detail>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="author">Author:</label>
-            <input type="text"  name="author" class="form-control" required>
-           <div  class ="alert alert-danger">
-               <p>Author is required</p>
-           </div>
-        </div>
-        <div class="form-group">
-            <label for="name">Posted by:</label>
-            <input type="text"  class="form-control" required>
-           <div class ="alert alert-danger">
-               <p>Name is required</p>
-           </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary" >Add Quote</button>
-    </form>
-   
+    </div>
+    
+    <footer>coptright@Brian mwenda 2021</footer>
 </div>
+
