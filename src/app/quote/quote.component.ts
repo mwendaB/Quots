@@ -14,6 +14,28 @@ quotes:Quote[]=[
     new Quote("Tom","Thomas A. Edison","Many of life’s failures are people who did not realize how close they were to success when they gave up.",2,1, new Date(2012,12,12))
   ]
    
+  get sortQuotes(){
+    return this.quotes.sort((a,b) => {
+       return b.likes - a.likes;
+     })
+   }
+
+   addNewQuote(quote:any){
+    let quoteLength = this.quotes.length;
+    quote.id = quoteLength+1;
+  
+    this.quotes.push(quote);
+  }
+
+  deleteQuote(isComplete:any,index:any){
+    if(isComplete){
+      let toDelete = confirm(`Are you sure you want to delete a quote by ${this.quotes[index].author}?`)
+      if(toDelete){
+        this.quotes.splice(index,1);
+      }
+    }
+
+  }
   constructor() { }
 
   ngOnInit(): void {
