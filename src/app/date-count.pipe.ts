@@ -17,7 +17,7 @@ export class DateCountPipe implements PipeTransform{
         return dateCounter;
     }else{
         return 0;
-    }
+    
   }
     
 
