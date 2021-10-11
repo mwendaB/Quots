@@ -1,6 +1,6 @@
+
 export class Quote {
-    name!:string ;
-    id!:number;
-    description!: string;
-    author!:string;
+    constructor(public name:string,public author:string, public description:string,public likes:number,public dislikes:number, public datePosted:Date){
+        
+    }
 }
